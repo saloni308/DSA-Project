@@ -1,21 +1,21 @@
 #include<stdio.h>
-#include<string.h>
+#include<string.h> 
 #include<stdlib.h>
 //   declarations of functions
-int search(int);
-int display();
-int back();
+int search(int);      //here int parameter passed reflects product id
+int display();        //display list of products
+int back();            // for returning
 int check(int);       //   for checking quantity
 int value=0;
  //   build a node
-struct node {
+struct node {          
 	int ID;
 	char proName[100];
 	double prePrice;            //   product price
 	int quantity;
 struct    node* next;
 };
-struct node *head=NULL;
+struct node *head=NULL; // represent first node of linked list
 //      for entering(saving) 1st record in list
  void beg()
 {
@@ -23,7 +23,7 @@ struct node *head=NULL;
 	int id,quant;           //  quant    for quantity
 	char name[100];
 	double pre;            //  pre for price
-	struct node *t =(struct node*) malloc(sizeof(struct node));
+	struct node *t =(struct node*) malloc(sizeof(struct node));  //dynamic memory allocation using malloc funcion
 
 	printf("\t\t\tEnter product ID:-");
 	scanf("%d",&id);
@@ -65,7 +65,7 @@ struct node *head=NULL;
 	printf("\t\t\tEnter product quantity:-");
 	scanf("%d",&quant);
 	t->quantity=quant;
-		while(p->next!=NULL)
+		while(p->next!=NULL)     // we go to the end of the list and assign last node as null
 		{
 		p=p->next;
 		}
@@ -74,7 +74,7 @@ struct node *head=NULL;
 		system("cls");
 		printf("\n\n\t\t\t\tThis product is Inserted!\n\n\n");
 	}
-	void delPro()
+	void delPro()       //deletion of product from the list
 	{
 		system("cls");
 		display();
@@ -95,16 +95,16 @@ struct node *head=NULL;
 
 		while(cur->ID!=id){                //  for delete middle area products
 			pre=cur;
-			cur=cur->next;
+			cur=cur->next;               
 }
 		pre->next=cur->next;
 		system("cls");
 		printf("\n<<item is deleted>>\n");
 	}else{
-		printf("\n<<<Not found>>\n\n");
+		printf("\n<<<Not found>>\n\n");       // if id ddoesnt match then this message is printed  
 	}
 	}
-	void modify(){
+	void modify(){             //this function is for modifying the details about product
 		int id;
 		double pre;        //    pre for price
 		char pName[100];      //   pName for new name
@@ -122,7 +122,7 @@ struct node *head=NULL;
 	pos=search(id);                        //   for check weather desire node is exist or not
 	if(pos<=count){
 
-		while(cur->ID!=id){
+		while(cur->ID!=id){         //if id matches with product then we change its details
 			cur=cur->next;
 		}
 		printf("\nOld Name : ");
@@ -141,7 +141,7 @@ struct node *head=NULL;
 	}
 	}
 }
-int display(){
+int display(){                         //display whole list in tabular form             
 		system("cls");
 		int c=0;             //   c for count products
 		struct node *p=head;
@@ -181,7 +181,7 @@ void buy(){
         struct node *cur=head;
 
         int quant;              //   quant   for quantity
-        printf("Enter id of item that you want to buy: ");
+        printf("Enter id of item that you want to buy: ");  search the product through id
         int id,pos=0;
         scanf("%d",&id);
         pos=search(id);
@@ -256,7 +256,7 @@ int main(){
     printf("<<<<<<<<<<<<<<<<<<<<<<<<   SuperMarket   >>>>>>>>>>>>>>>>>>>>\n");              //  \xB2  is for styling
 	printf("<<<<<<<<<<<<<<<<<<<<<<<<   Store         >>>>>>>>>>>>>>>>>>>>\n\n\n");
 	int temp=1;
-	while(1)
+	while(1)  // for continuous execution the program
     {
     int cm;
     flag=1;
@@ -264,7 +264,7 @@ int main(){
 	printf("\t\tEnter 1 for Shopkeeper portal \n\n\t\tEnter 2 for Customer portal\n\n\t\tEnter 0 for exit\n\n");
 	printf("*********>>>>>***********>>>>>>>>");
 	scanf("%d",&cm);
-	switch(cm)
+	switch(cm)   //manual ddriven program
 	{
     case 1 :
     while(flag){
